@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Isis Lindley - Professional Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f3eee4;
+    --cream-2:#ece5d7;
+    --ink:#1c1a17;
+    --ink-soft:#3c3833;
+    --sage:#7c8f74;
+    --sage-deep:#65775e;
+    --rust:#b9714b;
+    --line:#ddd2bf;
+    --line-soft:#e6ddc9;
+    --muted:#9a917f;
+    --card:#f8f4ea;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Playfair Display',serif;
+    margin:0;
+    color:var(--ink);
+    font-weight:600;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    max-width:1180px;
+    margin:0 auto;
+    padding:22px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:0.01em;
+    cursor:pointer;
+  }
+  nav{display:flex;gap:34px;}
+  nav button{
+    background:none;
+    border:none;
+    color:var(--ink-soft);
+    font-size:0.98rem;
+    cursor:pointer;
+    padding:4px 0;
+    border-bottom:1px solid transparent;
+  }
+  nav button.active{
+    color:var(--ink);
+    border-bottom:1px solid var(--sage-deep);
+  }
+  .menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer;}
+
+  /* ---------- shared section styling ---------- */
+  .page{display:none;}
+  .page.active{display:block;}
+
+  .eyebrow{
+    font-size:0.82rem;
+    color:var(--muted);
+    letter-spacing:0.02em;
+    margin-bottom:14px;
+  }
+
+  section{
+    max-width:1180px;
+    margin:0 auto;
+    padding:90px 32px;
+  }
+  section.tight{padding-top:70px;padding-bottom:70px;}
+  .divider{border-top:1px solid var(--line);}
+
+  .back-links{margin-bottom:26px;}
+  .back-links button{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:none;
+    border:none;
+    color:var(--muted);
+    font-size:0.95rem;
+    cursor:pointer;
+    padding:4px 0;
+  }
+  .back-links button:hover{color:var(--ink-soft);}
+
+  .detail-head{display:flex;align-items:center;gap:20px;margin-bottom:8px;}
+  .detail-icon{
+    width:52px;height:52px;border-radius:12px;
+    background:var(--cream-2);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink-soft);flex-shrink:0;
+  }
+  .detail-head h1{font-size:3rem;}
+  .detail-sub{color:var(--ink-soft);font-size:1.05rem;margin:22px 0 44px;}
+
+  /* ---------- hero ---------- */
+  .hero-image{
+    width:100%;
+    height:340px;
+    object-fit:cover;
+    display:block;
+  }
+  .hero-copy{
+    max-width:1180px;
+    margin:0 auto;
+    padding:64px 32px 80px;
+    position:relative;
+  }
+  .hero-copy h1{
+    font-size:5.4rem;
+    line-height:1;
+    margin:18px 0 22px;
+    max-width:14ch;
+  }
+  .hero-role{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    color:var(--sage-deep);
+    font-size:1.5rem;
+    margin-bottom:22px;
+  }
+  .hero-quote{
+    color:var(--rust);
+    font-size:1.05rem;
+    max-width:36ch;
+    line-height:1.6;
+    margin-bottom:34px;
+  }
+  .scroll-hint{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--muted);
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+    background:none;
+    border:none;
+    cursor:pointer;
+  }
+  .hero-year{
+    position:absolute;
+    right:32px;
+    top:70px;
+    font-family:'Playfair Display',serif;
+    font-size:8rem;
+    color:var(--cream-2);
+    z-index:0;
+    user-select:none;
+  }
+
+  /* ---------- about intro (home) ---------- */
+  .intro-grid{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:64px;
+    align-items:start;
+  }
+  .intro-photo{
+    width:100%;
+    aspect-ratio:1/1.08;
+    object-fit:cover;
+    border-radius:6px;
+    border:1px solid var(--line);
+  }
+  .intro-text{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.5;
+    color:var(--ink-soft);
+    margin-bottom:28px;
+  }
+  .pill-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;}
+  .pill{
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:9px 20px;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    background:var(--card);
+  }
+  .link-arrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--ink);
+    font-size:0.98rem;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+    cursor:pointer;
+    background:none;border:none;
+  }
+
+  /* ---------- experience grid (home teaser) ---------- */
+  .exp-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    margin-top:44px;
+  }
+  .exp-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:28px 26px 24px;
+    background:var(--card);
+    display:flex;
+    flex-direction:column;
+    min-height:210px;
+    cursor:pointer;
+    transition:border-color .15s ease;
+  }
+  .exp-card:hover{border-color:var(--sage-deep);}
+  .exp-icon{
+    width:46px;height:46px;
+    border-radius:10px;
+    background:var(--cream-2);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:22px;
+    color:var(--ink-soft);
+  }
+  .exp-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;margin-bottom:8px;}
+  .exp-card p{color:var(--muted);font-size:0.92rem;line-height:1.5;flex:1;}
+  .exp-card .view{
+    margin-top:18px;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    display:inline-flex;align-items:center;gap:6px;
+    background:none;border:none;cursor:pointer;padding:0;
+  }
+
+  /* ---------- experience list page ---------- */
+  .exp-list{margin-top:44px;display:flex;flex-direction:column;gap:16px;}
+  .exp-row{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 26px;
+    background:var(--card);
+    display:flex;
+    align-items:center;
+    gap:22px;
+    cursor:pointer;
+    transition:border-color .15s ease;
+  }
+  .exp-row:hover{border-color:var(--sage-deep);}
+  .exp-row .exp-icon{margin-bottom:0;flex-shrink:0;}
+  .exp-row-body{flex:1;}
+  .exp-row-body h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:4px;}
+  .exp-row-body p{color:var(--muted);font-size:0.92rem;}
+  .exp-row .count{color:var(--muted);font-size:0.9rem;margin-right:6px;}
+
+  .cta-strip{
+    margin-top:60px;
+    padding-top:40px;
+    border-top:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .cta-strip h3{font-family:'Playfair Display',serif;font-size:1.4rem;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border-radius:999px;
+    padding:14px 26px;
+    font-size:0.96rem;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-sage{background:var(--sage-deep);color:#fff;}
+  .btn-ink{background:var(--ink);color:#fff;}
+  .btn-outline{background:transparent;border-color:var(--line);color:var(--ink);}
+
+  /* ---------- about page ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:240px 1fr 300px;
+    gap:48px;
+    align-items:start;
+  }
+  .about-photo-a{
+    width:100%;
+    aspect-ratio:1/2.05;
+    object-fit:cover;
+    border-radius:6px;
+    border:1px solid var(--line);
+  }
+  .about-lede{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:1.6rem;
+    line-height:1.5;
+    color:var(--sage-deep);
+    margin-bottom:26px;
+  }
+  .about-body p{
+    color:var(--ink-soft);
+    font-size:1rem;
+    line-height:1.75;
+    margin-bottom:20px;
+  }
+  .about-photo-b{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:6px;
+    margin-bottom:22px;
+    filter:grayscale(15%);
+  }
+  .edu-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:14px;}
+  .edu-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 20px;
+    margin-bottom:14px;
+    background:var(--card);
+  }
+  .edu-card .deg{color:var(--muted);font-size:0.92rem;margin-bottom:6px;}
+  .edu-card .school{font-size:0.95rem;margin-bottom:2px;}
+  .edu-card .yrs{color:var(--muted);font-size:0.88rem;}
+
+  .about-actions{display:flex;gap:14px;margin-top:8px;flex-wrap:wrap;}
+
+  .skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:36px;}
+  .skills-label{font-size:0.82rem;color:var(--muted);letter-spacing:0.02em;margin-bottom:16px;}
+  .skills-pills{display:flex;flex-wrap:wrap;gap:12px;}
+
+  .contact-cta{
+    margin-top:70px;
+    background:var(--cream-2);
+    border-radius:14px;
+    padding:48px 44px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .contact-cta h3{font-size:1.7rem;margin-bottom:8px;}
+  .contact-cta p{color:var(--ink-soft);}
+
+  /* ---------- contact page ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:56px;
+    margin-top:44px;
+  }
+  .contact-note{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:12px 22px;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    margin-bottom:34px;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--sage-deep);display:inline-block;}
+  .contact-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px 22px;
+    background:var(--card);
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:16px;
+  }
+  .contact-card .ic{
+    width:42px;height:42px;border-radius:10px;background:var(--cream-2);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-soft);
+  }
+  .contact-card .lbl{font-size:0.78rem;letter-spacing:0.02em;color:var(--muted);margin-bottom:3px;}
+  .contact-card .val{font-size:0.98rem;}
+  .contact-photo{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    border-radius:8px;
+    margin-top:6px;
+  }
+
+  form{display:flex;flex-direction:column;gap:22px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  label{font-size:0.92rem;display:block;margin-bottom:8px;}
+  input,textarea{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:13px 16px;
+    background:var(--card);
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+    color:var(--ink);
+  }
+  input::placeholder,textarea::placeholder{color:#b3a894;}
+  textarea{min-height:150px;resize:vertical;}
+  input:focus,textarea:focus,button:focus-visible{
+    outline:2px solid var(--sage-deep);
+    outline-offset:2px;
+  }
+  .submit-btn{margin-top:4px;align-self:flex-start;border:none;}
+
+  .thank-you{
+    text-align:center;
+    padding:90px 32px;
+    border-top:1px solid var(--line);
+  }
+  .thank-you h2{
+    font-size:3.2rem;
+    color:var(--sage-deep);
+    font-style:italic;
+    margin-bottom:18px;
+  }
+  .thank-you p{color:var(--ink-soft);max-width:44ch;margin:0 auto;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:34px 32px;
+  }
+  .footer-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .footer-links{display:flex;gap:26px;font-size:0.92rem;color:var(--ink-soft);}
+  .footer-links a{cursor:pointer;}
+  .footer-copy{font-size:0.85rem;color:var(--muted);}
+
+  /* ---------- detail pages: shared 2-col item cards ---------- */
+  .item-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+  }
+  .item-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:var(--card);
+    padding:26px 28px;
+  }
+  .item-card.single{grid-column:1 / -1;max-width:600px;}
+  .item-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:6px;}
+  .item-top h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;}
+  .item-top .dates{color:var(--muted);font-size:0.88rem;white-space:nowrap;}
+  .item-role{color:var(--muted);font-size:0.8rem;letter-spacing:0.02em;margin-bottom:16px;text-transform:uppercase;}
+  .item-card ul{margin:0;padding:0;list-style:none;}
+  .item-card li{
+    color:var(--ink-soft);
+    font-size:0.94rem;
+    line-height:1.6;
+    padding-left:14px;
+    position:relative;
+    margin-bottom:4px;
+  }
+  .item-card li::before{content:"–";position:absolute;left:0;color:var(--muted);}
+  .item-card p.body-text{color:var(--ink-soft);font-size:0.95rem;line-height:1.7;}
+  .item-card .company-tag{
+    display:inline-block;
+    font-size:0.78rem;
+    color:var(--sage-deep);
+    background:var(--cream-2);
+    border-radius:999px;
+    padding:5px 14px;
+    margin-bottom:16px;
+  }
+  .item-card .link{color:var(--sage-deep);font-size:0.88rem;word-break:break-all;display:block;margin-bottom:14px;}
+
+  /* ---------- image banner on item cards (work / certifications / shadowing) ---------- */
+  .item-card{padding:0;overflow:hidden;}
+  .item-card .banner{
+    width:100%;
+    height:220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    color:#fff;
+  }
+  .item-card .banner img{width:100%;height:100%;object-fit:cover;display:block;}
+  .item-card .banner .banner-label{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:1.3rem;
+    line-height:1.3;
+  }
+  .item-card .banner .banner-sub{
+    font-size:0.75rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    opacity:0.85;
+    margin-top:8px;
+  }
+  .item-card .body-pad{padding:24px 28px 28px;}
+  .item-card.no-banner .body-pad{padding:26px 28px;}
+
+  /* ---------- photo carousel (Involvement) ---------- */
+  .photos-heading{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin:50px 0 24px;}
+  .carousel{position:relative;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);}
+  .carousel-track-wrap{width:100%;aspect-ratio:16/9;overflow:hidden;}
+  .carousel-track{display:flex;width:100%;height:100%;transition:transform .4s ease;}
+  .carousel-track img{width:100%;height:100%;object-fit:cover;flex-shrink:0;}
+  .carousel-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:42px;height:42px;border-radius:50%;
+    background:rgba(255,255,255,0.92);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;font-size:1.1rem;color:var(--ink);
+    z-index:5;
+  }
+  .carousel-arrow.prev{left:16px;}
+  .carousel-arrow.next{right:16px;}
+  .carousel-dots{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    padding:18px 0;
+  }
+  .carousel-dots .dot-btn{
+    width:7px;height:7px;border-radius:999px;
+    background:var(--line);
+    border:none;cursor:pointer;padding:0;
+    transition:width .2s ease,background .2s ease;
+  }
+  .carousel-dots .dot-btn.active{width:22px;background:var(--sage-deep);}
+
+  /* ---------- marketing & design: flexible masonry, native photo shapes ---------- */
+  .masonry{
+    column-count:3;
+    column-gap:22px;
+  }
+  .masonry .m-item{
+    break-inside:avoid;
+    margin-bottom:22px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--card);
+  }
+  .masonry .m-item img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .masonry .m-item .cap{padding:14px 16px;}
+  .masonry .m-item .cap h3{font-family:'Playfair Display',serif;font-size:0.98rem;margin-bottom:3px;}
+  .masonry .m-item .cap p{color:var(--muted);font-size:0.84rem;line-height:1.4;}
+  @media (max-width:920px){ .masonry{column-count:2;} }
+  @media (max-width:640px){ .masonry{column-count:1;} }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:920px){
+    .hero-copy h1{font-size:3.4rem;}
+    .hero-year{display:none;}
+    .intro-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .exp-grid{grid-template-columns:1fr 1fr;}
+    .skills-cols{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .item-grid{grid-template-columns:1fr;}
+    .gallery-strip{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    nav{
+      position:fixed;
+      top:70px;left:0;right:0;
+      background:var(--cream);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      gap:0;
+      padding:8px 32px 18px;
+      display:none;
+    }
+    nav.open{display:flex;}
+    nav button{padding:12px 0;border-bottom:1px solid var(--line-soft);width:100%;text-align:left;}
+    .menu-toggle{display:block;}
+    .exp-grid{grid-template-columns:1fr;}
+    section{padding:60px 22px;}
+    .hero-copy{padding:48px 22px 60px;}
+    .hero-copy h1{font-size:2.6rem;}
+    .header-inner{padding:18px 22px;}
+    .contact-cta,.cta-strip{flex-direction:column;align-items:flex-start;}
+    .detail-head h1{font-size:2.1rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand" data-page="home">Isis Lindley -Professional Portfolio</div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <nav id="mainNav">
+      <button data-page="home" class="active">Home</button>
+      <button data-page="experience">Experience</button>
+      <button data-page="about">About</button>
+      <button data-page="contact">Contact</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<div class="page active" id="page-home">
+
+  <img class="hero-image" src="https://images.unsplash.com/photo-1502691876148-a84978e59af8?q=80&w=1600&auto=format&fit=crop" alt="" />
+
+  <div class="hero-copy">
+    <div class="hero-year">'29</div>
+    <div class="eyebrow">Portfolio</div>
+    <h1>Isis Lindley</h1>
+    <div class="hero-role">TXST Honors Student</div>
+    <p class="hero-quote">Integrity First, Service Before Self, and Excellence in all we do &ndash;US Air Force</p>
+    <button class="scroll-hint" onclick="document.getElementById('home-intro').scrollIntoView({behavior:'smooth'})">⌄ Scroll</button>
+  </div>
+
+  <section class="tight" id="home-intro">
+    <div class="intro-grid">
+      <img class="intro-photo" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Portrait" />
+      <div>
+        <p class="intro-text">I am a Texas State University Sophomore and Honors student pursuing a dual path in Business Management (HR Concentration) and Biology, with a minor in Psychology. I am a dedicated student leader, a frequent on the Dean's List, and deeply passionate about bridging healthcare with corporate leadership.</p>
+        <div class="pill-row">
+          <span class="pill">Integrity</span>
+          <span class="pill">Compassion</span>
+          <span class="pill">Adaptability</span>
+          <span class="pill">Leadership</span>
+          <span class="pill">Discipline</span>
+          <span class="pill">Charismatic</span>
+        </div>
+        <div class="eyebrow" style="margin-bottom:2px;">About</div>
+        <h2 style="font-size:2.6rem;margin-bottom:6px;">About Me</h2>
+        <button class="link-arrow" style="margin-top:18px;" data-page="about">More about me →</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="eyebrow">Explore</div>
+    <h2 style="font-size:2.6rem;">Experience</h2>
+    <div class="exp-grid" id="home-exp-grid"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="thank-you">
+    <h2>Thank you!</h2>
+    <p>For taking the time to visit and learn a little about me and my endeavors.</p>
+  </div>
+</div>
+
+<!-- ================= EXPERIENCE ================= -->
+<div class="page" id="page-experience">
+  <section>
+    <div class="eyebrow">Work</div>
+    <h2 style="font-size:3.4rem;">Experience</h2>
+    <p style="color:var(--ink-soft);margin-top:14px;">Everything I've been up to from 2021 – Present</p>
+
+    <div class="exp-list" id="exp-list-full"></div>
+
+    <div class="cta-strip">
+      <h3>Need to reach me?</h3>
+      <button class="btn btn-sage" data-page="contact">Get in Touch →</button>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page" id="page-about">
+  <section>
+    <div class="eyebrow">About</div>
+    <h2 style="font-size:3.4rem;margin-bottom:44px;">About Me</h2>
+
+    <div class="about-grid">
+      <img class="about-photo-a" src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=800&auto=format&fit=crop" alt="" />
+
+      <div class="about-body">
+        <p class="about-lede">Hello! I am a Texas State University Sophomore and Honors student pursuing a dual path in Business Management (HR Concentration) and Biology, with a minor in Psychology.</p>
+        <p>Standing at 80+ credit hours, I am a dedicated student leader, a frequent on the Dean's List, and deeply passionate about bridging healthcare with corporate leadership.</p>
+        <p>Leadership, empathy, and management aren't just skills I learned through school, as the oldest of four siblings, they have been part of my daily reality for as long as I can remember. My role model, my grandfather, worked in Human Resources and instilled in me the importance of advocating for employees within a company. With this, I started out yearning to create healthy work environments for everyday people, especially since my mother and grandmother work in the education system with 60+ hours a week. After some time in college, I've discovered another passion of mine; the human body. How the mind can create physiological change, how our biology reacts to our environment, and how we can use this intersection to measurably improve peoples daily life.</p>
+        <p>This conversation between health and business is ultimately where I see my future. I am committed to transforming how organizations care for the mind, body, and overall well-being of their people.</p>
+        <p>Thank you for taking the time to learn about me!</p>
+        <div class="about-actions">
+          <button class="btn btn-sage" data-page="contact">Get in Touch →</button>
+          <button class="btn btn-outline">⬇ Download Resume</button>
+        </div>
+      </div>
+
+      <div>
+        <img class="about-photo-b" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=700&auto=format&fit=crop" alt="" />
+        <div class="edu-title">Education</div>
+        <div class="edu-card">
+          <div class="deg">B.B.A<br/>Business Administration &ndash; HR Concentration</div>
+          <div class="school">Texas State University</div>
+          <div class="yrs">2025 &ndash; 2029</div>
+        </div>
+        <div class="edu-card">
+          <div class="deg">B.S.<br/>Biology &ndash; Minor in Psychology</div>
+          <div class="school">Texas State University</div>
+          <div class="yrs">2025 &ndash; 2029</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider" style="margin-top:70px;"></div>
+
+    <div style="margin-top:60px;">
+      <h2 style="font-size:2.2rem;margin-bottom:30px;">Skills</h2>
+      <div class="skills-cols">
+        <div>
+          <div class="skills-label">PERSONAL</div>
+          <div class="skills-pills">
+            <span class="pill">Time Management</span>
+            <span class="pill">Organization</span>
+            <span class="pill">Flexible</span>
+            <span class="pill">Customer Service</span>
+            <span class="pill">Reliable</span>
+          </div>
+        </div>
+        <div>
+          <div class="skills-label">TOOLS</div>
+          <div class="skills-pills">
+            <span class="pill">Canva</span>
+            <span class="pill">Excel</span>
+            <span class="pill">POS</span>
+            <span class="pill">CRM Tools</span>
+            <span class="pill">Word</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-cta">
+      <div>
+        <h3>Contact</h3>
+        <p>I'm actively looking for roles. I'd love to hear from you.</p>
+      </div>
+      <button class="btn btn-ink" data-page="contact">Get in Touch →</button>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" id="page-contact">
+  <section>
+    <div class="eyebrow">Contact</div>
+    <h2 style="font-size:3.4rem;">Get in Touch</h2>
+    <p style="color:var(--ink-soft);margin-top:14px;">I'd love to hear from you.</p>
+
+    <div class="contact-note"><span class="dot"></span> I'll get back to you as soon as possible.</div>
+
+    <div class="contact-grid">
+      <div>
+        <div class="contact-card">
+          <div class="ic">✉</div>
+          <div>
+            <div class="lbl">EMAIL</div>
+            <div class="val">sgw71@txst.edu</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="ic">📍</div>
+          <div>
+            <div class="lbl">LOCATION</div>
+            <div class="val">Texas State University, San Marcos, TX</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="ic">☎</div>
+          <div>
+            <div class="lbl">PHONE</div>
+            <div class="val">+ (832) 473-6186</div>
+          </div>
+        </div>
+        <img class="contact-photo" src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?q=80&w=800&auto=format&fit=crop" alt="" />
+      </div>
+
+      <form id="contactForm">
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div>
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" placeholder="What's this about?" />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-sage submit-btn">Send Message ➤</button>
+      </form>
+    </div>
+
+    <div class="thank-you" id="contactThanks" style="display:none;">
+      <h2>Thank you!</h2>
+      <p>For taking the time to visit and learn a little about me and my endeavors.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= INVOLVEMENT DETAIL ================= -->
+<div class="page" id="page-involvement">
+  <section>
+    <div class="back-links">
+      <button data-page="experience">← Back to Experience</button>
+      <button data-page="home">← Back to Home</button>
+    </div>
+    <div class="detail-head">
+      <div class="detail-icon" id="ic-involvement"></div>
+      <h1>Involvement</h1>
+    </div>
+    <p class="detail-sub">Clubs, organizations, and community engagement.</p>
+
+    <div class="photos-heading">Photos</div>
+    <div class="carousel" id="involvementCarousel">
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="involvementTrack"></div>
+      </div>
+      <button class="carousel-arrow prev" id="involvementPrev" aria-label="Previous photo">‹</button>
+      <button class="carousel-arrow next" id="involvementNext" aria-label="Next photo">›</button>
+    </div>
+    <div class="carousel-dots" id="involvementDots"></div>
+
+    <div class="item-grid" id="grid-involvement" style="margin-top:50px;"></div>
+  </section>
+</div>
+
+<!-- ================= WORK EXPERIENCE DETAIL ================= -->
+<div class="page" id="page-work">
+  <section>
+    <div class="back-links">
+      <button data-page="experience">← Back to Experience</button>
+      <button data-page="home">← Back to Home</button>
+    </div>
+    <div class="detail-head">
+      <div class="detail-icon" id="ic-work"></div>
+      <h1>Work Experience</h1>
+    </div>
+    <p class="detail-sub">Internships, part-time roles, and professional positions.</p>
+    <div class="item-grid" id="grid-work"></div>
+  </section>
+</div>
+
+<!-- ================= CERTIFICATIONS DETAIL ================= -->
+<div class="page" id="page-certifications">
+  <section>
+    <div class="back-links">
+      <button data-page="experience">← Back to Experience</button>
+      <button data-page="home">← Back to Home</button>
+    </div>
+    <div class="detail-head">
+      <div class="detail-icon" id="ic-certifications"></div>
+      <h1>Certifications</h1>
+    </div>
+    <p class="detail-sub">Credentials, courses, and professional development.</p>
+    <div class="item-grid" id="grid-certifications"></div>
+  </section>
+</div>
+
+<!-- ================= SHADOWING DETAIL ================= -->
+<div class="page" id="page-shadowing">
+  <section>
+    <div class="back-links">
+      <button data-page="experience">← Back to Experience</button>
+      <button data-page="home">← Back to Home</button>
+    </div>
+    <div class="detail-head">
+      <div class="detail-icon" id="ic-shadowing"></div>
+      <h1>Shadowing</h1>
+    </div>
+    <p class="detail-sub">Observational experiences and mentorship opportunities.</p>
+    <div class="item-grid" id="grid-shadowing"></div>
+  </section>
+</div>
+
+<!-- ================= CURRENT PROJECTS DETAIL ================= -->
+<div class="page" id="page-projects">
+  <section>
+    <div class="back-links">
+      <button data-page="experience">← Back to Experience</button>
+      <button data-page="home">← Back to Home</button>
+    </div>
+    <div class="detail-head">
+      <div class="detail-icon" id="ic-projects"></div>
+      <h1>Current Projects</h1>
+    </div>
+    <p class="detail-sub">What I'm actively working on right now.</p>
+    <div class="item-grid" id="grid-projects"></div>
+  </section>
+</div>
+
+<!-- ================= MARKETING & DESIGN DETAIL ================= -->
+<div class="page" id="page-marketing">
+  <section>
+    <div class="back-links">
+      <button data-page="experience">← Back to Experience</button>
+      <button data-page="home">← Back to Home</button>
+    </div>
+    <div class="detail-head">
+      <div class="detail-icon" id="ic-marketing"></div>
+      <h1>Marketing &amp; Design</h1>
+    </div>
+    <p class="detail-sub">A gallery of my creative and marketing work.</p>
+    <div class="masonry" id="grid-marketing"></div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="brand" style="font-size:1rem;" data-page="home">Isis Lindley</div>
+    <div class="footer-links">
+      <a data-page="home">Home</a>
+      <a data-page="experience">Projects</a>
+      <a data-page="about">About</a>
+      <a data-page="contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Isis Lindley. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const ICONS = {
+    users:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    briefcase:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
+    award:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M9 14 6 22l6-3 6 3-3-8"/></svg>',
+    eye:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
+    folder:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>',
+    palette:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2a10 10 0 1 0 0 20c1 0 1.5-1 1.5-2a2 2 0 0 1 2-2h1a5 5 0 0 0 5-5c0-6-4-11-9.5-11z"/></svg>',
+  };
+
+  const EXPERIENCE = [
+    { key:'involvement', icon:'users', title:'Involvement', desc:'Clubs, organizations, and community engagement.', count:'11 items' },
+    { key:'work', icon:'briefcase', title:'Work Experience', desc:'Internships, part-time roles, and professional positions.', count:'6 items' },
+    { key:'certifications', icon:'award', title:'Certifications', desc:'Credentials, courses, and professional development.', count:'6 items' },
+    { key:'shadowing', icon:'eye', title:'Shadowing', desc:'Observational experiences and mentorship opportunities.', count:'2 items' },
+    { key:'projects', icon:'folder', title:'Current Projects', desc:"What I'm actively working on right now.", count:'1 item' },
+    { key:'marketing', icon:'palette', title:'Marketing & Design', desc:'A gallery of my creative and marketing work.', count:'Gallery' },
+  ];
+
+  function cardHTML(item){
+    return `<div class="exp-card" data-page="${item.key}">
+      <div class="exp-icon">${ICONS[item.icon]}</div>
+      <h3>${item.title}</h3>
+      <p>${item.desc}</p>
+      <button class="view">View →</button>
+    </div>`;
+  }
+  function rowHTML(item){
+    return `<div class="exp-row" data-page="${item.key}">
+      <div class="exp-icon">${ICONS[item.icon]}</div>
+      <div class="exp-row-body">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+      </div>
+      <span class="count">${item.count}</span>
+      <span>→</span>
+    </div>`;
+  }
+
+  document.getElementById('home-exp-grid').innerHTML = EXPERIENCE.map(cardHTML).join('');
+  document.getElementById('exp-list-full').innerHTML = EXPERIENCE.map(rowHTML).join('');
+  EXPERIENCE.forEach(item=>{
+    const el = document.getElementById('ic-'+item.key);
+    if(el) el.innerHTML = ICONS[item.icon];
+  });
+
+  // ---------- INVOLVEMENT ----------
+  const INVOLVEMENT = [
+    { title:'National SHRM', role:'Director of Marketing and Communications', dates:'08/2025 – Present',
+      bullets:['Create Marketing and Promote SHRM program','McCoy Leadership Meetings','Professional Development','Communication with current members, past members, speakers, and faculty'] },
+    { title:'Women in Business', role:'Member', dates:'08/2025 – 05/2026',
+      bullets:['Philanthropy','Professional Development'] },
+    { title:'Drill Team', role:'Commander', dates:'2022 – 2025',
+      bullets:['Plan, Run, and Coordinate Drill Practices','Report back to Sergeant','Varsity Drill Commander, JV Drill Commander, Varsity Colorguard, JV Colorguard, Exhibition, Inspection'] },
+    { title:'EHS Quartet + Glissando Quartet + Philos Quartet + Symphinic Quartet', role:'Tenor Saxophone Member', dates:'2021 – 2025',
+      bullets:['Invited and Performed at TMEA (Glissando)','4 Different Quartets','Solo in UIL','Performed National Anthem at Football Games','Performed at Local Church','Performed at local Houston Venue'] },
+    { title:'Elkins Band', role:'Section Leader', dates:'2021 – Present',
+      bullets:['Section Leader over 26 Players','Philharmonic Band','Marching Band Soloist x2','Full Orchestra'] },
+    { title:'AFJROTC', role:'2nd in Command – Operations – Major', dates:'2022 – 2025',
+      bullets:['Mandatory AFJROTC Leadership Training (Week at University of Houston)','Newcombe Ranch Leadership + High Ropes Camp x2','Commanded Squadron at Pass and Review x2','Oversaw all 6 clubs inside of program (ex. Rocketry, Archery, Drill Team, Robotics, etc.)'] },
+    { title:'Psychology Society', role:'Vice President & Co-Founder', dates:'2024 – 2025',
+      bullets:['Created and ran meetings','Managed Marketing and Social Media','Recruit and Interact with Students'] },
+    { title:'National Honor Society', role:'Member', dates:'2023 – 2025',
+      bullets:['Academic Achievement','Community Service','Leadership Building'] },
+    { title:'Kitty Hawk Honor Society', role:'Vice President', dates:'2024 – 2025',
+      bullets:['Create and help run meetings','Performance and Attendance Tracking','Merchandise Creation','GPA and Requirement Tracking'] },
+    { title:'National TRI-M', role:'Member', dates:'2022 – 2025',
+      bullets:['Music Honor Society','Community Service','Excellence in Music Requirement','Leadership Building'] },
+    { title:'Krakens Saxophone Choir', role:'Vice President', dates:'2023 – 2025',
+      bullets:['Live performances at local Houston venue','Live performances at Laurel Glen Assisted Living Facility'] },
+  ];
+
+  document.getElementById('grid-involvement').innerHTML = INVOLVEMENT.map(it => `
+    <div class="item-card no-banner">
+      <div class="body-pad">
+        <div class="item-top"><h3>${it.title}</h3><span class="dates">${it.dates}</span></div>
+        <div class="item-role">${it.role}</div>
+        <ul>${it.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      </div>
+    </div>`).join('');
+
+  // ---------- INVOLVEMENT PHOTO CAROUSEL ----------
+  // Swap these URLs for your own photo files (e.g. "photos/involvement-01.jpg") — 20 slots.
+  const INVOLVEMENT_PHOTOS = Array.from({length:20}, (_,i)=>`https://picsum.photos/seed/involve${i+1}/1200/800`);
+
+  const track = document.getElementById('involvementTrack');
+  const dotsWrap = document.getElementById('involvementDots');
+  track.innerHTML = INVOLVEMENT_PHOTOS.map((src,i)=>`<img src="${src}" alt="Involvement photo ${i+1}" />`).join('');
+  dotsWrap.innerHTML = INVOLVEMENT_PHOTOS.map((_,i)=>`<button class="dot-btn${i===0?' active':''}" data-i="${i}" aria-label="Go to photo ${i+1}"></button>`).join('');
+
+  let currentSlide = 0;
+  function goToSlide(i){
+    currentSlide = (i + INVOLVEMENT_PHOTOS.length) % INVOLVEMENT_PHOTOS.length;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dotsWrap.querySelectorAll('.dot-btn').forEach((d,idx)=> d.classList.toggle('active', idx===currentSlide));
+  }
+  document.getElementById('involvementPrev').addEventListener('click', ()=> goToSlide(currentSlide - 1));
+  document.getElementById('involvementNext').addEventListener('click', ()=> goToSlide(currentSlide + 1));
+  dotsWrap.addEventListener('click', (e)=>{
+    const b = e.target.closest('.dot-btn');
+    if(b) goToSlide(parseInt(b.dataset.i,10));
+  });
+
+  // ---------- WORK EXPERIENCE ----------
+  const WORK = [
+    { company:'Texas State University', role:'Residential Assistant', dates:'08/03/26 – Present',
+      bullets:['Create an inclusive community for students within the Residential College Living-Learning Community','Take residents to programs with TXST faculty to enhance student retention and academic success','Provide 24/7 on-call emergency response','Create programs for community engagement and implement resources for residents'] },
+    { company:'BCC Security', role:'Sales Associate', dates:'11/2025 – 05/2026', link:'https://www.bccsecurityservices.com/',
+      bullets:['Conducted daily cold calls to generate new business leads','Managed sales pipelines using a self-managed CRM tool','Identified decision-makers through outreach and research','Maintained accurate data logs for all customer interactions'] },
+    { company:'Flower Child', role:'Server', dates:'Summer 2026',
+      bullets:['Greeted guests warmly and ensured proper customer service','Took accurate orders and POS','Maintained clean tables, bathrooms, kitchen, and all other areas of the restaurant','Handled alcohol (TABC)'] },
+    { company:"Raising Canes", role:'Crew Member', dates:'03/2024 – 05/2025',
+      bullets:['Served chicken fingers and sides in a fast-paced environment','Maintained a clean, safe, and organized dining room and kitchen area','Operated POS cash registers quickly and accurately to process payments'] },
+    { company:'Texas Aquatic Enterprises', role:'Lifeguard', dates:'05/2024 – 10/2024',
+      bullets:['Monitored swimming areas closely','Responded to emergencies and administered first aid, CPR, and AED care','Enforced pool rules and regulations','Inspected rescue equipment and tested pool chemical levels daily'] },
+    { company:'Bambino', role:'Childcare', dates:'03/2024 – 05/2025',
+      bullets:['Provide attentive, safe, and engaging care','Plan fun activities such as outdoor play and games','Drive safely to and from activities, clean up play areas, and make meals or snacks','Childcare for a specific family for over a year'] },
+  ];
+
+  const WORK_COLORS = ['#65775e','#1c1a17','#b9714b','#7c8f74','#3c3833','#8a6a4f'];
+  document.getElementById('grid-work').innerHTML = WORK.map((it,i) => `
+    <div class="item-card">
+      <div class="banner" style="background:${WORK_COLORS[i % WORK_COLORS.length]};">
+        <div>
+          <div class="banner-label">${it.company}</div>
+          <div class="banner-sub">${it.role}</div>
+        </div>
+      </div>
+      <div class="body-pad">
+        <div class="item-top"><h3>${it.company}</h3><span class="dates">${it.dates}</span></div>
+        <div class="item-role">${it.role}</div>
+        ${it.link ? `<a class="link" href="${it.link}" target="_blank" rel="noopener">${it.link}</a>` : ''}
+        <ul>${it.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      </div>
+    </div>`).join('');
+
+  // ---------- CERTIFICATIONS ----------
+  const CERTS = [
+    { title:'TABC Seller-Server Certification', issuer:'Texas Alcoholic Beverage Commission', year:'2024',
+      desc:'Completed the state-required seller-server training covering responsible alcohol service, Texas liquor laws, and liability awareness for food and beverage industry professionals.' },
+    { title:'LinkedIn Learning Course Completion', issuer:'LinkedIn Learning', year:'2024',
+      desc:'Completed professional development coursework through LinkedIn Learning, building skills applicable to business, communication, and career readiness.' },
+    { title:'Human Subject Protection Training', issuer:'CITI Program', year:'2023',
+      desc:"Completed the CITI Program's Human Subject Protection training, covering ethical principles and federal regulations for conducting research involving human participants." },
+    { title:'Artificial Intelligence Certificate', issuer:'LinkedIn Learning', year:'2023',
+      desc:'Earned a LinkedIn Learning certificate in Artificial Intelligence, exploring foundational AI concepts, machine learning applications, and the impact of AI on business and society.' },
+    { title:'Texas Food Handler Certification', issuer:'Learn2Serve / 360Training', year:'2023',
+      desc:'Completed the Texas-approved food handler training covering safe food handling practices, hygiene standards, and foodborne illness prevention as required by the Texas Department of State Health Services.' },
+    { title:'Business Analysis Fundamentals', issuer:'Microsoft / LinkedIn Learning', year:'2024',
+      desc:"Completed Microsoft's Business Analysis Fundamentals course, gaining skills in requirements gathering, process analysis, stakeholder communication, and data-driven decision making." },
+  ];
+
+  document.getElementById('grid-certifications').innerHTML = CERTS.map(it => `
+    <div class="item-card">
+      <div class="banner" style="background:var(--cream-2);border-bottom:1px solid var(--line);">
+        <div>
+          <div class="banner-label" style="color:var(--ink);">${it.title}</div>
+          <div class="banner-sub" style="color:var(--muted);">${it.issuer}</div>
+        </div>
+      </div>
+      <div class="body-pad">
+        <div class="item-top"><h3>${it.title}</h3><span class="dates">${it.year}</span></div>
+        <div class="item-role">${it.issuer}</div>
+        <p class="body-text">${it.desc}</p>
+      </div>
+    </div>`).join('');
+
+  // ---------- SHADOWING ----------
+  const SHADOW = [
+    { company:'Verkada', place:'Austin, TX', date:'03/19/2026',
+      desc:"Verkada is one of the fastest growing security companies in Texas and sells advanced cameras and software systems. During this shadowing, I attended an immersive site visit, explored Verkada as a company, networked with higher ups, learned about organizational culture, workspace design, and recruitment." },
+    { company:'Sherman William Oaks', place:'Kyle, TX', date:'03/18/2026',
+      desc:"Sherman William Oaks is one of the largest paint companies in the world. During this visit I engaged with the team to gain a hands on experience and exposure to the work environment, more specifically in Sales and Human Resources." },
+  ];
+
+  document.getElementById('grid-shadowing').innerHTML = SHADOW.map((it,i) => `
+    <div class="item-card">
+      <div class="banner" style="padding:0;">
+        <img src="https://picsum.photos/seed/shadow${i+1}/900/600" alt="${it.company} shadowing photo" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div class="body-pad">
+        <div class="item-top"><h3>${it.company}</h3><span class="dates">${it.date}</span></div>
+        <div class="item-role">${it.place}</div>
+        <p class="body-text">${it.desc}</p>
+      </div>
+    </div>`).join('');
+
+  // ---------- CURRENT PROJECTS ----------
+  const PROJECTS = [
+    { title:'Personal Research', role:'Creator + Executor with Mentor', dates:'08/2026 – Present',
+      desc:"As of now, I am currently working with the IDEA Center and my mentor, Dr. Idema, to research perceived warmth of sharks cross generationally in relation to shark week and social media and how this effects conservation efforts. I am currently in class 4399, which allots specific time for me to work on my project to help manage my time and resources. I am extremely grateful to the IDEA Center and my mentor for making this work possible!" },
+  ];
+
+  document.getElementById('grid-projects').innerHTML = PROJECTS.map(it => `
+    <div class="item-card single no-banner">
+      <div class="body-pad">
+        <div class="item-top"><h3>${it.title}</h3><span class="dates">${it.dates}</span></div>
+        <div class="item-role">${it.role}</div>
+        <p class="body-text">${it.desc}</p>
+      </div>
+    </div>`).join('');
+
+  // ---------- MARKETING & DESIGN ----------
+  // 21 slots, each keeping the photo's own natural aspect ratio (masonry layout).
+  // Swap "img" for your own files (e.g. "photos/marketing-01.jpg") — sizes below are
+  // just varied placeholders so the masonry effect is visible; drop in real images of
+  // any shape and the frames will adapt automatically.
+  const MK_SIZES = [
+    [800,600],[600,800],[900,500],[700,900],[850,650],[650,850],
+    [800,800],[900,600],[600,750],[750,600],[900,700],[600,900],
+  ];
+  const MARKETING = Array.from({length:21}, (_,i)=>{
+    const [w,h] = MK_SIZES[i % MK_SIZES.length];
+    return {
+      title:`Design piece ${i+1}`,
+      desc:'Marketing / design work — replace with your own title & description.',
+      img:`https://picsum.photos/seed/mk${i+1}/${w}/${h}`,
+    };
+  });
+  // First two slots use the two known real pieces' titles/descriptions.
+  MARKETING[0].title = 'Psych Society Flyer';
+  MARKETING[0].desc = 'Recruitment flyer for the Psychology Society — media analysis, tutoring, brain dissection, and volunteer hours.';
+  MARKETING[1].title = 'AFJROTC Cadet Leadership Course';
+  MARKETING[1].desc = 'Program handout designed for the Elkins AFJROTC Cadet Leadership Course, 2024.';
+
+  document.getElementById('grid-marketing').innerHTML = MARKETING.map(it => `
+    <div class="m-item">
+      <img src="${it.img}" alt="${it.title}" loading="lazy" />
+      <div class="cap"><h3>${it.title}</h3><p>${it.desc}</p></div>
+    </div>`).join('');
+
+  // ---------- navigation ----------
+  function showPage(name){
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    document.querySelectorAll('nav button').forEach(b => b.classList.toggle('active', b.dataset.page === name));
+    window.scrollTo(0,0);
+    document.getElementById('mainNav').classList.remove('open');
+  }
+
+  document.addEventListener('click', (e)=>{
+    const el = e.target.closest('[data-page]');
+    if(el) showPage(el.dataset.page);
+  });
+
+  document.getElementById('menuToggle').addEventListener('click', ()=>{
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('contactThanks').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
