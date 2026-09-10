@@ -641,7 +641,7 @@
 <!-- ================= HOME ================= -->
 <div class="page active" id="page-home">
 
-  <img class="hero-image" src="https://images.unsplash.com/photo-1502691876148-a84978e59af8?q=80&w=1600&auto=format&fit=crop" alt="" />
+  <img class="hero-image" src="photos/home-hero-sand.jpeg" alt="" />
 
   <div class="hero-copy">
     <div class="hero-year">'29</div>
@@ -654,7 +654,7 @@
 
   <section class="tight" id="home-intro">
     <div class="intro-grid">
-      <img class="intro-photo" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Portrait" />
+      <img class="intro-photo" src="photos/portrait.jpg" alt="Isis Lindley portrait" />
       <div>
         <p class="intro-text">I am a Texas State University Sophomore and Honors student pursuing a dual path in Business Management (HR Concentration) and Biology, with a minor in Psychology. I am a dedicated student leader, a frequent on the Dean's List, and deeply passionate about bridging healthcare with corporate leadership.</p>
         <div class="pill-row">
@@ -711,7 +711,7 @@
     <h2 style="font-size:3.4rem;margin-bottom:44px;">About Me</h2>
 
     <div class="about-grid">
-      <img class="about-photo-a" src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=800&auto=format&fit=crop" alt="" />
+      <img class="about-photo-a" src="photos/portrait-night.jpg" alt="Isis Lindley" />
 
       <div class="about-body">
         <p class="about-lede">Hello! I am a Texas State University Sophomore and Honors student pursuing a dual path in Business Management (HR Concentration) and Biology, with a minor in Psychology.</p>
@@ -721,12 +721,12 @@
         <p>Thank you for taking the time to learn about me!</p>
         <div class="about-actions">
           <button class="btn btn-sage" data-page="contact">Get in Touch →</button>
-          <button class="btn btn-outline">⬇ Download Resume</button>
+          <a class="btn btn-outline" href="resume.pdf" download="Isis-Lindley-Resume.pdf">⬇ Download Resume</a>
         </div>
       </div>
 
       <div>
-        <img class="about-photo-b" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=700&auto=format&fit=crop" alt="" />
+        <img class="about-photo-b" src="photos/portrait-night.jpg" alt="Isis Lindley portrait" />
         <div class="edu-title">Education</div>
         <div class="edu-card">
           <div class="deg">B.B.A<br/>Business Administration &ndash; HR Concentration</div>
@@ -1046,8 +1046,17 @@
     </div>`).join('');
 
   // ---------- INVOLVEMENT PHOTO CAROUSEL ----------
-  // Swap these URLs for your own photo files (e.g. "photos/involvement-01.jpg") — 20 slots.
-  const INVOLVEMENT_PHOTOS = Array.from({length:20}, (_,i)=>`https://picsum.photos/seed/involve${i+1}/1200/800`);
+  const INVOLVEMENT_PHOTOS = [
+    'photos/involvement-01.jpeg','photos/involvement-02.jpg','photos/involvement-03.jpg',
+    'photos/involvement-04.jpeg','photos/involvement-05.jpg','photos/involvement-06.jpg',
+    'photos/involvement-07.jpg','photos/involvement-08.jpg','photos/involvement-09.jpeg',
+    'photos/involvement-10.jpg','photos/involvement-11.jpeg','photos/involvement-12.jpeg',
+    'photos/involvement-13.jpg','photos/involvement-14.jpeg','photos/involvement-15.jpeg',
+    'photos/involvement-16.jpeg','photos/involvement-17.jpeg','photos/involvement-18.jpeg',
+    'photos/involvement-19.jpg','photos/involvement-20.jpg','photos/involvement-21.jpeg',
+    'photos/involvement-22.jpg','photos/involvement-23.jpg','photos/involvement-24.jpg',
+    'photos/involvement-25.jpg',
+  ];
 
   const track = document.getElementById('involvementTrack');
   const dotsWrap = document.getElementById('involvementDots');
@@ -1069,29 +1078,32 @@
 
   // ---------- WORK EXPERIENCE ----------
   const WORK = [
-    { company:'Texas State University', role:'Residential Assistant', dates:'08/03/26 – Present',
+    { company:'Texas State University', role:'Residential Assistant', dates:'08/03/26 – Present', logo:'photos/logo-txst.jpeg',
       bullets:['Create an inclusive community for students within the Residential College Living-Learning Community','Take residents to programs with TXST faculty to enhance student retention and academic success','Provide 24/7 on-call emergency response','Create programs for community engagement and implement resources for residents'] },
-    { company:'BCC Security', role:'Sales Associate', dates:'11/2025 – 05/2026', link:'https://www.bccsecurityservices.com/',
+    { company:'BCC Security', role:'Sales Associate', dates:'11/2025 – 05/2026', link:'https://www.bccsecurityservices.com/', logo:'photos/logo-bcc-security.jpeg',
       bullets:['Conducted daily cold calls to generate new business leads','Managed sales pipelines using a self-managed CRM tool','Identified decision-makers through outreach and research','Maintained accurate data logs for all customer interactions'] },
-    { company:'Flower Child', role:'Server', dates:'Summer 2026',
+    { company:'Flower Child', role:'Server', dates:'Summer 2026', logo:'photos/logo-flower-child.jpg',
       bullets:['Greeted guests warmly and ensured proper customer service','Took accurate orders and POS','Maintained clean tables, bathrooms, kitchen, and all other areas of the restaurant','Handled alcohol (TABC)'] },
-    { company:"Raising Canes", role:'Crew Member', dates:'03/2024 – 05/2025',
+    { company:"Raising Canes", role:'Crew Member', dates:'03/2024 – 05/2025', logo:'photos/logo-canes.jpg',
       bullets:['Served chicken fingers and sides in a fast-paced environment','Maintained a clean, safe, and organized dining room and kitchen area','Operated POS cash registers quickly and accurately to process payments'] },
-    { company:'Texas Aquatic Enterprises', role:'Lifeguard', dates:'05/2024 – 10/2024',
+    { company:'Texas Aquatic Enterprises', role:'Lifeguard', dates:'05/2024 – 10/2024', logo:'photos/logo-tae.png',
       bullets:['Monitored swimming areas closely','Responded to emergencies and administered first aid, CPR, and AED care','Enforced pool rules and regulations','Inspected rescue equipment and tested pool chemical levels daily'] },
-    { company:'Bambino', role:'Childcare', dates:'03/2024 – 05/2025',
+    { company:'Bambino', role:'Childcare', dates:'03/2024 – 05/2025', logo:'photos/logo-bambino.webp',
       bullets:['Provide attentive, safe, and engaging care','Plan fun activities such as outdoor play and games','Drive safely to and from activities, clean up play areas, and make meals or snacks','Childcare for a specific family for over a year'] },
   ];
 
   const WORK_COLORS = ['#65775e','#1c1a17','#b9714b','#7c8f74','#3c3833','#8a6a4f'];
   document.getElementById('grid-work').innerHTML = WORK.map((it,i) => `
     <div class="item-card">
-      <div class="banner" style="background:${WORK_COLORS[i % WORK_COLORS.length]};">
-        <div>
-          <div class="banner-label">${it.company}</div>
-          <div class="banner-sub">${it.role}</div>
-        </div>
-      </div>
+      ${it.logo
+        ? `<div class="banner" style="padding:24px;background:#fff;"><img src="${it.logo}" alt="${it.company} logo" style="width:100%;height:100%;object-fit:contain;" /></div>`
+        : `<div class="banner" style="background:${WORK_COLORS[i % WORK_COLORS.length]};">
+             <div>
+               <div class="banner-label">${it.company}</div>
+               <div class="banner-sub">${it.role}</div>
+             </div>
+           </div>`
+      }
       <div class="body-pad">
         <div class="item-top"><h3>${it.company}</h3><span class="dates">${it.dates}</span></div>
         <div class="item-role">${it.role}</div>
@@ -1102,47 +1114,57 @@
 
   // ---------- CERTIFICATIONS ----------
   const CERTS = [
-    { title:'TABC Seller-Server Certification', issuer:'Texas Alcoholic Beverage Commission', year:'2024',
-      desc:'Completed the state-required seller-server training covering responsible alcohol service, Texas liquor laws, and liability awareness for food and beverage industry professionals.' },
-    { title:'LinkedIn Learning Course Completion', issuer:'LinkedIn Learning', year:'2024',
-      desc:'Completed professional development coursework through LinkedIn Learning, building skills applicable to business, communication, and career readiness.' },
-    { title:'Human Subject Protection Training', issuer:'CITI Program', year:'2023',
-      desc:"Completed the CITI Program's Human Subject Protection training, covering ethical principles and federal regulations for conducting research involving human participants." },
-    { title:'Artificial Intelligence Certificate', issuer:'LinkedIn Learning', year:'2023',
-      desc:'Earned a LinkedIn Learning certificate in Artificial Intelligence, exploring foundational AI concepts, machine learning applications, and the impact of AI on business and society.' },
-    { title:'Texas Food Handler Certification', issuer:'Learn2Serve / 360Training', year:'2023',
-      desc:'Completed the Texas-approved food handler training covering safe food handling practices, hygiene standards, and foodborne illness prevention as required by the Texas Department of State Health Services.' },
-    { title:'Business Analysis Fundamentals', issuer:'Microsoft / LinkedIn Learning', year:'2024',
-      desc:"Completed Microsoft's Business Analysis Fundamentals course, gaining skills in requirements gathering, process analysis, stakeholder communication, and data-driven decision making." },
+    { title:'TABC Seller-Server Certification', issuer:'Texas Alcoholic Beverage Commission', year:'2026',
+      desc:'Completed the state-required seller-server training covering responsible alcohol service, Texas liquor laws, and liability awareness for food and beverage industry professionals.',
+      img:'photos/cert-tabc.png', pdf:'certs/tabc-seller-server-certification.pdf' },
+    { title:'What Is Generative AI?', issuer:'LinkedIn Learning', year:'2026',
+      desc:'Completed professional development coursework through LinkedIn Learning, building skills applicable to business, communication, and career readiness.',
+      img:'photos/cert-generative-ai.png', pdf:'certs/linkedin-generative-ai.pdf' },
+    { title:'Human Subject Protection Training', issuer:'CITI Program', year:'2026',
+      desc:"Completed the CITI Program's Human Subject Protection training, covering ethical principles and federal regulations for conducting research involving human participants.",
+      img:'photos/cert-citi.png', pdf:'certs/citi-human-subject-protection.pdf' },
+    { title:'Artificial Intelligence for Students', issuer:'LinkedIn Learning', year:'2026',
+      desc:'Earned a LinkedIn Learning certificate in Artificial Intelligence, exploring foundational AI concepts, machine learning applications, and the impact of AI on business and society.',
+      img:'photos/cert-ai-students.png', pdf:'certs/linkedin-ai-for-students.pdf' },
+    { title:'Texas Food Handler Certification', issuer:'Learn2Serve / 360Training', year:'2026',
+      desc:'Completed the Texas-approved food handler training covering safe food handling practices, hygiene standards, and foodborne illness prevention as required by the Texas Department of State Health Services.',
+      img:'photos/cert-food-handler.png', pdf:'certs/texas-food-handler-certification.pdf' },
+    { title:'Business Analysis Fundamentals', issuer:'Microsoft / LinkedIn Learning', year:'2026',
+      desc:"Completed Microsoft's Business Analysis Fundamentals course, gaining skills in requirements gathering, process analysis, stakeholder communication, and data-driven decision making.",
+      img:'photos/cert-business-analysis.png', pdf:'photos/cert-business-analysis.png' },
   ];
 
   document.getElementById('grid-certifications').innerHTML = CERTS.map(it => `
     <div class="item-card">
-      <div class="banner" style="background:var(--cream-2);border-bottom:1px solid var(--line);">
-        <div>
-          <div class="banner-label" style="color:var(--ink);">${it.title}</div>
-          <div class="banner-sub" style="color:var(--muted);">${it.issuer}</div>
-        </div>
-      </div>
+      ${it.img
+        ? `<a href="${it.pdf}" target="_blank" rel="noopener"><div class="banner" style="padding:0;background:var(--cream-2);"><img src="${it.img}" alt="${it.title} certificate" style="width:100%;height:100%;object-fit:cover;object-position:top;" /></div></a>`
+        : `<div class="banner" style="background:var(--cream-2);border-bottom:1px solid var(--line);">
+             <div>
+               <div class="banner-label" style="color:var(--ink);">${it.title}</div>
+               <div class="banner-sub" style="color:var(--muted);">${it.issuer}</div>
+             </div>
+           </div>`
+      }
       <div class="body-pad">
         <div class="item-top"><h3>${it.title}</h3><span class="dates">${it.year}</span></div>
         <div class="item-role">${it.issuer}</div>
         <p class="body-text">${it.desc}</p>
+        ${it.pdf ? `<a class="link" href="${it.pdf}" target="_blank" rel="noopener" style="margin-top:12px;">View full certificate ↗</a>` : ''}
       </div>
     </div>`).join('');
 
   // ---------- SHADOWING ----------
   const SHADOW = [
-    { company:'Verkada', place:'Austin, TX', date:'03/19/2026',
+    { company:'Verkada', place:'Austin, TX', date:'03/19/2026', img:'photos/shadow-verkada.jpeg',
       desc:"Verkada is one of the fastest growing security companies in Texas and sells advanced cameras and software systems. During this shadowing, I attended an immersive site visit, explored Verkada as a company, networked with higher ups, learned about organizational culture, workspace design, and recruitment." },
-    { company:'Sherman William Oaks', place:'Kyle, TX', date:'03/18/2026',
+    { company:'Sherman William Oaks', place:'Kyle, TX', date:'03/18/2026', img:'photos/shadow-sherman-williams.jpeg',
       desc:"Sherman William Oaks is one of the largest paint companies in the world. During this visit I engaged with the team to gain a hands on experience and exposure to the work environment, more specifically in Sales and Human Resources." },
   ];
 
   document.getElementById('grid-shadowing').innerHTML = SHADOW.map((it,i) => `
     <div class="item-card">
       <div class="banner" style="padding:0;">
-        <img src="https://picsum.photos/seed/shadow${i+1}/900/600" alt="${it.company} shadowing photo" style="width:100%;height:100%;object-fit:cover;" />
+        <img src="${it.img}" alt="${it.company} shadowing photo" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="body-pad">
         <div class="item-top"><h3>${it.company}</h3><span class="dates">${it.date}</span></div>
@@ -1158,7 +1180,8 @@
   ];
 
   document.getElementById('grid-projects').innerHTML = PROJECTS.map(it => `
-    <div class="item-card single no-banner">
+    <div class="item-card single">
+      <div class="banner" style="padding:20px;background:#fff;"><img src="photos/logo-bobcat-idea.jpg" alt="Bobcat IDEA Center logo" style="width:120px;height:120px;object-fit:contain;" /></div>
       <div class="body-pad">
         <div class="item-top"><h3>${it.title}</h3><span class="dates">${it.dates}</span></div>
         <div class="item-role">${it.role}</div>
@@ -1167,15 +1190,47 @@
     </div>`).join('');
 
   // ---------- MARKETING & DESIGN ----------
-  // 21 slots, each keeping the photo's own natural aspect ratio (masonry layout).
-  // Swap "img" for your own files (e.g. "photos/marketing-01.jpg") — sizes below are
-  // just varied placeholders so the masonry effect is visible; drop in real images of
-  // any shape and the frames will adapt automatically.
+  // 21 slots total. Real design pieces are first — the frames size to each
+  // image's own natural aspect ratio (masonry layout), so any shape works.
+  const MARKETING_REAL = [
+    { title:'Psych Society Flyer', desc:'Recruitment flyer for the Psychology Society — media analysis, tutoring, brain dissection, and volunteer hours.', img:'photos/marketing-psych-society.jpeg' },
+    { title:'"Perks of Being in Psych Society" — Movie Night', desc:'Instagram event post for the Psych Society film analysis discussion of The Perks of Being a Wallflower.', img:'photos/marketing-wallflower.jpeg' },
+    { title:'Nature Photography Collage', desc:'A personal photo collage of landscapes and hikes.', img:'photos/marketing-photo-collage.jpeg' },
+    { title:'Weekly Psych Tips — Favorite Color', desc:'Instagram infographic series exploring the psychology behind favorite colors.', img:'photos/marketing-psych-tips.jpeg' },
+    { title:'Psych Society — About Us', desc:'Info graphic covering what Psych Society offers and its weekly meeting schedule.', img:'photos/marketing-psych-about-us.png' },
+    { title:'AFJROTC Recruitment Brochure', desc:'Multi-panel brochure for why students should join Elkins AFJROTC — extracurriculars, field trips, and volunteering.', img:'photos/marketing-afjrotc-recruit.png' },
+    { title:'AFJROTC Air Force Birthday Flyer', desc:'Event flyer for the Elkins AFJROTC Air Force Birthday celebration.', img:'photos/marketing-afjrotc-birthday.png' },
+    { title:'SHRM Elevator Pitch & Interview Social (Slide 1)', desc:'Event promo for the SHRM "How To: Elevator Pitch + Interview Social," featuring Cane\'s chicken.', img:'photos/marketing-shrm-carousel-1.png' },
+    { title:'SHRM Carousel — Step 1', desc:'Instagram carousel tip: reflect honestly on your values, passions, and what energizes you.', img:'photos/marketing-shrm-carousel-2.png' },
+    { title:'SHRM Carousel — Step 2', desc:'Instagram carousel tip: let go of external expectations and compare yourself only to your past self.', img:'photos/marketing-shrm-carousel-3.png' },
+    { title:'SHRM Carousel — Step 3', desc:'Instagram carousel tip: experiment, observe what feels aligned, and lean into what feels true.', img:'photos/marketing-shrm-carousel-4.png' },
+    { title:'Psych Society — AP Psychology Cram Session', desc:'Instagram flyer promoting EHS Psych Society\'s AP Psychology cram sessions, with review topics, Kahoots, and discussion.', img:'photos/marketing-psych-ap-cram.png' },
+    { title:'Psych Society — Interest Meeting', desc:'Instagram post for a Psych Society interest meeting, followed by a Criminal Minds watch party with snacks.', img:'photos/marketing-psych-interest-meeting.png' },
+    { title:'Psych Society — Join Our Remind', desc:'Instagram post inviting followers to join the Psych Society Remind for the new school year.', img:'photos/marketing-psych-remind.png' },
+    { title:'SHRM — Happy First Day of Classes', desc:'Photo collage celebrating the first day of classes at Texas State University, posted on behalf of SHRM.', img:'photos/marketing-shrm-first-day.png' },
+    { title:'SHRM — Meeting Reminder', desc:'Phone-mockup Instagram post reminding members of an upcoming SHRM meeting.', img:'photos/marketing-shrm-meeting-reminder.png' },
+    { title:'Elkins Tri-M Logo', desc:'Wordmark logo created for the Elkins Tri-M Music Honor Society, 2023–24.', img:'photos/marketing-trim-logo.png' },
+    { title:'Tri-M National Honor Society', desc:'Instagram post styled as a music player, promoting Tri-M National Honor Society.', img:'photos/marketing-trim-spotify.png' },
+    { title:'SHRM — Connect With Us', desc:'Instagram/QR card with SHRM meeting times and social links.', img:'photos/marketing-shrm-connect.png' },
+    { title:'SHRM — September Interest Meeting', desc:'Scrapbook-style flyer for a SHRM interest meeting covering club expectations and the national organization.', img:'photos/marketing-shrm-interest-meeting.png' },
+    { title:'SHRM Newsletter — Upcoming Meetings & Fairs', desc:'August–September newsletter page listing upcoming SHRM meetings and career fairs.', img:'photos/marketing-shrm-newsletter-1.png' },
+    { title:'SHRM Newsletter — Event Breakdown', desc:'August–September newsletter page detailing each SHRM event in full.', img:'photos/marketing-shrm-newsletter-2.png' },
+    { title:'SHRM — HRSouthwest Conference Flyer', desc:'Recruitment flyer for the SHRM annual professional development trip to the HRSouthwest Conference.', img:'photos/marketing-hrsouthwest.png' },
+    { title:'Eat \'Em Up Cats — Version 1', desc:'Texas State spirit graphic featuring the Bobcat mark, tan colorway.', img:'photos/marketing-eat-em-up-cats-1.png' },
+    { title:'Eat \'Em Up Cats — Version 2', desc:'Texas State spirit graphic featuring the Bobcat mark, mauve colorway.', img:'photos/marketing-eat-em-up-cats-2.png' },
+    { title:'"The Children\'s Hour" — Film Poster', desc:'Poster design for an Honors Creative Arts class film production, The Children\'s Hour.', img:'photos/marketing-childrens-hour-poster.png' },
+    { title:'Girls Night — Movie Night Flyer', desc:'Scrapbook-style flyer for a dorm Girls Night movie screening.', img:'photos/marketing-girls-night.png' },
+    { title:'"CARE" — Personal Highlights Collage', desc:'A personal design spelling out CARE with photo cutouts from leadership, service, and music activities.', img:'photos/marketing-care-collage.png' },
+    { title:'RA Welcome Poster — About Me', desc:'Scrapbook-style "Hello, I\'m Isis Lindley" introduction poster made for residents as a Residential Assistant.', img:'photos/marketing-ra-scrapbook-1.png' },
+    { title:'RA Welcome Poster — Join the GroupMe', desc:'Scrapbook-style page with a QR code inviting residents to join the floor GroupMe.', img:'photos/marketing-ra-scrapbook-2.png' },
+    { title:'RA Welcome Poster — Linktree', desc:'Scrapbook-style page with a QR code linking to a Linktree of resources.', img:'photos/marketing-ra-scrapbook-3.png' },
+  ];
   const MK_SIZES = [
     [800,600],[600,800],[900,500],[700,900],[850,650],[650,850],
     [800,800],[900,600],[600,750],[750,600],[900,700],[600,900],
   ];
-  const MARKETING = Array.from({length:21}, (_,i)=>{
+  const MARKETING = Array.from({length: MARKETING_REAL.length}, (_,i)=>{
+    if (MARKETING_REAL[i]) return MARKETING_REAL[i];
     const [w,h] = MK_SIZES[i % MK_SIZES.length];
     return {
       title:`Design piece ${i+1}`,
@@ -1183,11 +1238,6 @@
       img:`https://picsum.photos/seed/mk${i+1}/${w}/${h}`,
     };
   });
-  // First two slots use the two known real pieces' titles/descriptions.
-  MARKETING[0].title = 'Psych Society Flyer';
-  MARKETING[0].desc = 'Recruitment flyer for the Psychology Society — media analysis, tutoring, brain dissection, and volunteer hours.';
-  MARKETING[1].title = 'AFJROTC Cadet Leadership Course';
-  MARKETING[1].desc = 'Program handout designed for the Elkins AFJROTC Cadet Leadership Course, 2024.';
 
   document.getElementById('grid-marketing').innerHTML = MARKETING.map(it => `
     <div class="m-item">
